@@ -13,7 +13,7 @@ beforeEach(() => {
 
 test("createTask", async () => {
   const res = await request(app.callback())
-    .post("/tasks")
+    .post("/api/tasks")
     .set("Content-Type", "application/json")
     .send({ userId: kermit.id, task: "be nice to piggy" })
     .expect(200);
@@ -31,11 +31,11 @@ test("listTasks", async () => {
     task: "laugh at fozzy",
   });
   const res = await request(app.callback())
-    .get(`/tasks/${kermit.id}`)
+    .get(`/api/tasks/${kermit.id}`)
     .set("Content-Type", "application/json")
     .send()
     .expect(200);
-  expect(res.body["tasks"].length).toBe(2);
-  expect(res.body["tasks"]).toEqual([task1, task2]);
+  expect(res.body.length).toBe(2);
+  expect(res.body).toEqual([task1, task2]);
 });
 

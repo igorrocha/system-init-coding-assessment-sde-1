@@ -13,6 +13,6 @@ export const createTask = async (ctx: Context, next: Next) => {
 // List the tasks for a user. The userId paramter is the
 // userId of the users whose tasks you want to list.
 export const listTasks = async (ctx: Context, next: Next) => {
-  ctx.body = { tasks: tasksList(ctx.params.userId) };
+  ctx.body = tasksList(ctx.params.userId);
   await next();
 };

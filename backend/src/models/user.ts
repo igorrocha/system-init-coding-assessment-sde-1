@@ -16,6 +16,12 @@ export type UserCreate = Omit<User, "id">;
 export let users: { [id: string]: User } = {};
 
 export const usersAdd = (userCreate: UserCreate) => {
+  for (const user of Object.values(users)) {
+    if (user.name == userCreate.name) {
+      console.log("returning the existing user");
+      return user;
+    }
+  }
   const user = {
     id: randomUUID(),
     name: userCreate.name,

@@ -9,7 +9,7 @@ beforeEach(() => {
 
 test("createUser", async () => {
   const res = await request(app.callback())
-    .post("/users")
+    .post("/api/users")
     .set("Content-Type", "application/json")
     .send({ name: "adam" })
     .expect(200);
@@ -19,7 +19,7 @@ test("createUser", async () => {
 test("listUsers", async () => {
   usersAdd({ name: "adam" });
   const res = await request(app.callback())
-    .get("/users")
+    .get("/api/users")
     .set("Content-Type", "application/json")
     .send()
     .expect(200);

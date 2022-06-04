@@ -3,7 +3,7 @@ import { createUser, listUsers } from "./handlers/users";
 import { createTask, listTasks } from "./handlers/tasks";
 
 export const router = new Router();
-router.get("/users", listUsers);
-router.post("/users", createUser);
-router.post("/tasks", createTask);
-router.get("/tasks/:userId", listTasks);
+router.get("/api/users", listUsers);
+router.post("/api/users", createUser);
+router.post("/api/tasks", createTask);
+router.get("/api/tasks/:userId", listTasks);
