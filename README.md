@@ -85,7 +85,8 @@ and needs to remember a lot of tasks.
  * Add a `tasksRemove` function to the `task` model in the backend, and a corresponding test. It should require the `userId` and a `taskId`.
  * Add a `delete` route to the backend for `/api/tasks/:userId/:taskId`.
  * Add a `removeTask` handler to the backend, which calls the `taskRemove` model function. It should set the status of the response to 200. Add the corresponding test.
- * Add an `@click` handler to the 'X' button that calls your new backend API.
+ * Add a `removeTask` action to the task store in the frontend that calls the API and refreshes the list of tasks.
+ * Add an `@click` handler to the 'X' button that calls your new backend API through the task store action.
 
 ## How to run Taskly
 
