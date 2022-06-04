@@ -1,3 +1,5 @@
+// Tests for our User model.
+
 import { users, usersAdd, usersClear, usersList } from "../../src/models/user";
 import { clearState } from "../../src/models";
 

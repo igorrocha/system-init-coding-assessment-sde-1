@@ -1,3 +1,14 @@
+<script setup>
+// Shows the current list of tasks for the user.
+import { useTaskStore } from "@/stores/task";
+
+const taskStore = useTaskStore();
+
+// When the component is first mounted, we need to get the list of
+// tasks for the user for the first time.
+await taskStore.getTasks();
+</script>
+
 <template>
   <div class="grid grid-cols-1 gap-4">
     <div
@@ -13,10 +24,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { useTaskStore } from "@/stores/task";
-
-const taskStore = useTaskStore();
-await taskStore.getTasks();
-</script>

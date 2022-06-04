@@ -1,3 +1,5 @@
+// The routes for the application. Taskly only has one route!
+
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "./views/HomeView.vue";
 

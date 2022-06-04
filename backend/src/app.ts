@@ -1,3 +1,6 @@
+// Our backend is a Koa application. This module creates the
+// application and configures it for our needs.
+
 import * as Koa from "koa";
 import * as json from "koa-json";
 import * as bodyParser from "koa-bodyparser";

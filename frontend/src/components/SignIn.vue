@@ -1,3 +1,19 @@
+<script setup lang="ts">
+// The sign in page for Taskly.
+import { useUserStore } from "@/stores/user";
+import { ref } from "vue";
+
+// The userName entered in the text field.
+const userName = ref("");
+
+const userStore = useUserStore();
+
+// Sign the user in. Used when the sign in button is clicked.
+const signIn = async () => {
+  await userStore.signIn(userName.value);
+};
+</script>
+
 <template>
   <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
@@ -42,15 +58,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { useUserStore } from "@/stores/user";
-import { ref } from "vue";
-
-const userName = ref("");
-const userStore = useUserStore();
-
-const signIn = async () => {
-  await userStore.signIn(userName.value);
-};
-</script>

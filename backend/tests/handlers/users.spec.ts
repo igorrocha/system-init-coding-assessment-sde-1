@@ -1,3 +1,5 @@
+// Tests for our Users API.
+
 import * as request from "supertest";
 import { app } from "../../src/app";
 import { clearState } from "../../src/models";

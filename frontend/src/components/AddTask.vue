@@ -1,3 +1,23 @@
+<script setup>
+// The UI for adding a task.
+import { PlusCircleIcon, DocumentTextIcon } from "@heroicons/vue/solid";
+import { useTaskStore } from "@/stores/task";
+import { ref } from "vue";
+
+// The task as entered by the user in the form.
+const task = ref("");
+
+const taskStore = useTaskStore();
+
+// Add a new task. Triggered when the user hits enter in the
+// text box, or hits the add button. Clears the `task` field
+// after submission.
+const addTask = async () => {
+  await taskStore.addTask(task.value);
+  task.value = "";
+};
+</script>
+
 <template>
   <div>
     <label for="email" class="block text-sm font-medium text-gray-700">
@@ -30,17 +50,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { PlusCircleIcon, DocumentTextIcon } from "@heroicons/vue/solid";
-import { useTaskStore } from "@/stores/task";
-import { ref } from "vue";
-
-const taskStore = useTaskStore();
-const task = ref("");
-
-const addTask = async () => {
-  await taskStore.addTask(task.value);
-  task.value = "";
-};
-</script>
