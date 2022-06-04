@@ -29,13 +29,13 @@ $ npm install
 
 ## Development
 
-To run the API for development, we recommend you run it in `watch` mode. This
+To run the API for development, we recommend you run it in `dev` mode. This
 will restart the server automatically when you make changes to the 
 source. (Remember that means all the data will be destroyed, so make sure you
 log out of the frontend after you make changes, or risk being out of sync.)
 
 ```
-$ npm run watch
+$ npm run dev
 ```
 
 To run the service without restarting it automatically, you can use:
