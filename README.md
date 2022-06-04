@@ -81,10 +81,10 @@ and needs to remember a lot of tasks.
 
 ### Work breakdown
 
- * Add the 'X' button to the task list in `ListTasks.vue`. Use the [X Heroicon](https://heroicons.com/).
+ * Add the 'X' button to the task list in `ListTasks.vue`. Use the [X Heroicon](https://heroicons.com/). Set the icon to be `h-8` and `w-8`.
  * Add a `tasksRemove` function to the `task` model in the backend, and a corresponding test. It should require the `userId` and a `taskId`.
  * Add a `delete` route to the backend for `/api/tasks/:userId/:taskId`.
- * Add a `removeTask` handler to the backend, which calls the `taskRemove` model function. Add the corresponding test.
+ * Add a `removeTask` handler to the backend, which calls the `taskRemove` model function. It should set the status of the response to 200. Add the corresponding test.
  * Add an `@click` handler to the 'X' button that calls your new backend API.
 
 ## How to run Taskly
