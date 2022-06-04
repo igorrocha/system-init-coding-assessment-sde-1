@@ -1,6 +1,6 @@
 # Software Engineer I Take Home Assessment 
 
-This is the repository for the System Initiatives Software Engineer I take-home assessment. It is designed to verify that:
+This is the repository for the System Initiative Software Engineer I take-home assessment. It is designed to verify that:
 
 * You can take well scoped software development tasks and execute them on an existing code base.
 * You have some proficiency with Javascript / [Typescript](https://www.typescriptlang.org/).
@@ -42,7 +42,7 @@ they need to do.
 Taskly focused on letting people put their new tasks into the application 
 first - so they wouldn't forget them! When they talked to people about how they
 keep their task list today, though, there is an important thing missing -
-completing a task! 
+completing a task.
 
 The opportunity is to allow users to not only remember the things they need to 
 do, but to complete them when they've finished!
