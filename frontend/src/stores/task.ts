@@ -49,6 +49,9 @@ export const useTaskStore = defineStore({
         console.log("Cannot add a task without a logged in user; bug!");
       }
     },
+    // Remove a task from the task list, then update the list of tasks. It
+    // is a bug to call this action when a user is not logged in; we
+    // currently just log to the console if that happens.
     async removeTask(taskId: string) {
       const userStore = useUserStore();
       if (userStore.user) {
