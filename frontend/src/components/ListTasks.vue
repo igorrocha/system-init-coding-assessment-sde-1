@@ -10,8 +10,8 @@ const taskStore = useTaskStore();
 // tasks for the user for the first time.
 await taskStore.getTasks();
 
-// Removes a task by its id and updates the task list. 
-// Triggered when the user clicks on the 'X' button in a 
+// Removes a task by its id and updates the task list.
+// Triggered when the user clicks on the 'X' button in a
 // task item.
 const removeTask = async (taskId) => {
   await taskStore.removeTask(taskId);
@@ -29,9 +29,15 @@ const removeTask = async (taskId) => {
         <p class="text-md font-medium text-gray-900">
           {{ task.task }}
         </p>
-        <button type="button"
+        <button
+          type="button"
           class="hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
-          @click="() => { removeTask(task.id) }">
+          @click="
+            () => {
+              removeTask(task.id);
+            }
+          "
+        >
           <XIcon class="h-8 w-8 text-black-400" aria-hidden="true" />
         </button>
       </div>

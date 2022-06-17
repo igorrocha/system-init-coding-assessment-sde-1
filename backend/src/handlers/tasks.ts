@@ -1,7 +1,12 @@
 // The REST handlers for tasks.
 
 import { Context, Next } from "koa";
-import { tasksAdd, taskCreateSchema, tasksList, tasksRemove } from "../models/task";
+import {
+  tasksAdd,
+  taskCreateSchema,
+  tasksList,
+  tasksRemove,
+} from "../models/task";
 
 // Create a new task. The body of the request is an object that matches
 // the `TaskCreate` interface.
@@ -24,4 +29,4 @@ export const removeTask = async (ctx: Context, next: Next) => {
   tasksRemove(ctx.params.userId, ctx.params.taskId);
   ctx.body = {};
   await next();
-}
+};

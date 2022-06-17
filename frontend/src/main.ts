@@ -1,4 +1,4 @@
-// The main entrypoint of the frontend. Creates our Vue 
+// The main entrypoint of the frontend. Creates our Vue
 // application, and mounts it in the DOM.
 
 import { createApp } from "vue";
