@@ -49,6 +49,15 @@ export const useTaskStore = defineStore({
         console.log("Cannot add a task without a logged in user; bug!");
       }
     },
+    async removeTask(taskId: string) {
+      const userStore = useUserStore();
+      if (userStore.user) {
+        await taskApi.delete(`${userStore.user.id}/${taskId}`);
+        await this.getTasks();
+      } else {
+        console.log("Cannot remove a task without a logged in user; bug!");
+      }
+    },
     // Reset the list of tasks to the initial state (empty).
     clear() {
       this.tasks = [];

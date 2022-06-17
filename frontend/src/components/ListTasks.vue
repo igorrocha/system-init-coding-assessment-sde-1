@@ -1,5 +1,7 @@
 <script setup>
-// Shows the current list of tasks for the user.
+// Shows the current list of tasks for the user
+// and allows the user to delete tasks.
+import { XIcon } from "@heroicons/vue/solid";
 import { useTaskStore } from "@/stores/task";
 
 const taskStore = useTaskStore();
@@ -7,6 +9,13 @@ const taskStore = useTaskStore();
 // When the component is first mounted, we need to get the list of
 // tasks for the user for the first time.
 await taskStore.getTasks();
+
+// Removes a task by its id and updates the task list. 
+// Triggered when the user clicks on the 'X' button in a 
+// task item.
+const removeTask = async (taskId) => {
+  await taskStore.removeTask(taskId);
+};
 </script>
 
 <template>
@@ -20,7 +29,13 @@ await taskStore.getTasks();
         <p class="text-md font-medium text-gray-900">
           {{ task.task }}
         </p>
+        <button type="button"
+          class="-ml-px hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+          @click="() => { removeTask(task.id) }">
+          <XIcon class="h-8 w-8 text-black-400" aria-hidden="true" />
+        </button>
       </div>
     </div>
   </div>
 </template>
+
