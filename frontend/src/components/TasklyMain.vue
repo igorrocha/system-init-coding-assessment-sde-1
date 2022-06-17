@@ -11,6 +11,7 @@ import {
 } from "@headlessui/vue";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/vue/outline";
 import AddTask from "./AddTask.vue";
+import ClearTasks from "./ClearTasks.vue";
 import ListTasks from "./ListTasks.vue";
 import { useUserStore } from "@/stores/user";
 import { useTaskStore } from "@/stores/task";
@@ -195,7 +196,10 @@ const signOut = () => {
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div class="px-4 py-8 sm:px-0">
             <div class="flex flex-col w-full p-8">
-              <AddTask class="md:w-1/2" />
+              <div class="flex justify-between items-end w-full">
+                <AddTask />
+                <ClearTasks />
+              </div>
               <Suspense>
                 <ListTasks class="pt-4" />
                 <template #fallback> ... loading tasks ... </template>
