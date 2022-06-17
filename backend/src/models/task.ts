@@ -53,3 +53,15 @@ export const tasksList = (userId: string) => {
     return [];
   }
 };
+
+// Remove a task given its and and userId.
+// If the specified user doesn't exist,
+// just log a warning. 
+export const tasksRemove = (userId: string, id: string) => {
+  if (tasks[userId]) {
+    tasks[userId] = tasks[userId].filter((task) => { return task.id !== id })
+  }
+  else {
+    console.warn('User not found');
+  }
+}

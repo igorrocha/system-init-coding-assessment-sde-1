@@ -1,6 +1,6 @@
 // Tests for our Task model.
 
-import { tasks, tasksAdd, tasksClear, tasksList } from "../../src/models/task";
+import { tasks, tasksAdd, tasksClear, tasksList, tasksRemove } from "../../src/models/task";
 import { usersAdd, User } from "../../src/models/user";
 import { clearState } from "../../src/models";
 
@@ -48,4 +48,13 @@ test("tasksList", () => {
   expect(tasksList(kermit.id)).toEqual(expect.arrayContaining([kermitTask]));
   expect(tasksList(piggy.id)).toEqual(expect.arrayContaining([piggyTask]));
   expect(tasksList("nope")).toEqual([]);
+});
+
+test("tasksRemove", () => {
+  const kermitTask = tasksAdd({ userId: kermit.id, task: "be nice to piggy" });
+  const kermitTask2 = tasksAdd({ userId: kermit.id, task: "laugh at fozzy" });
+
+  tasksRemove(kermitTask.userId, kermitTask.id);
+  expect(tasks[kermit.id]).toEqual(expect.not.arrayContaining([kermitTask]));
+  expect(tasks[kermit.id]).toEqual(expect.arrayContaining([kermitTask2]));
 });
