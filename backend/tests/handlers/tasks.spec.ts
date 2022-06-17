@@ -41,3 +41,15 @@ test("listTasks", async () => {
   expect(res.body).toEqual([task1, task2]);
 });
 
+test("removeTask", async () => {
+  const task1 = tasksAdd({
+    userId: kermit.id,
+    task: "be nice to piggy",
+  });
+  const res = await request(app.callback())
+    .delete(`/api/tasks/${kermit.id}/${task1.id}`)
+    .set("Content-Type", "application/json")
+    .send()
+    .expect(200);
+  expect(res.body).toEqual({});
+});
