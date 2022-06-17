@@ -25,12 +25,12 @@ const removeTask = async (taskId) => {
       :key="task.id"
       class="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
     >
-      <div class="flex-1 min-w-0">
+      <div class="flex justify-between min-w-0 w-full">
         <p class="text-md font-medium text-gray-900">
           {{ task.task }}
         </p>
         <button type="button"
-          class="-ml-px hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+          class="hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
           @click="() => { removeTask(task.id) }">
           <XIcon class="h-8 w-8 text-black-400" aria-hidden="true" />
         </button>
@@ -38,4 +38,3 @@ const removeTask = async (taskId) => {
     </div>
   </div>
 </template>
-
