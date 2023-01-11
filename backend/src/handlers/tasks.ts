@@ -6,6 +6,7 @@ import {
   taskCreateSchema,
   tasksList,
   tasksRemove,
+  tasksClearByUser,
 } from "../models/task";
 
 // Create a new task. The body of the request is an object that matches
@@ -27,6 +28,13 @@ export const listTasks = async (ctx: Context, next: Next) => {
 // Remove a task given its userId and taskId
 export const removeTask = async (ctx: Context, next: Next) => {
   tasksRemove(ctx.params.userId, ctx.params.taskId);
+  ctx.body = {};
+  await next();
+};
+
+// Removes all tasks of a given user.
+export const clearUserTasks = async (ctx: Context, next: Next) => {
+  tasksClearByUser(ctx.params.userId);
   ctx.body = {};
   await next();
 };

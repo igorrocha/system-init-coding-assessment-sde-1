@@ -61,6 +61,18 @@ export const useTaskStore = defineStore({
         console.log("Cannot remove a task without a logged in user; bug!");
       }
     },
+    // Clear the tasks list, then update the list of tasks. It
+    // is a bug to call this action when a user is not logged in; we
+    // currently just log to the console if that happens.
+    async clearTasks() {
+      const userStore = useUserStore();
+      if (userStore.user) {
+        await taskApi.delete(userStore.user.id);
+        await this.getTasks();
+      } else {
+        console.log("Cannot clear tasks without a logged in user; bug!");
+      }
+    },
     // Reset the list of tasks to the initial state (empty).
     clear() {
       this.tasks = [];

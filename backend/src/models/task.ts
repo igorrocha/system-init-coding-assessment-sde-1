@@ -66,3 +66,12 @@ export const tasksRemove = (userId: string, taskId: string) => {
     console.warn("User not found");
   }
 };
+
+// Removes all tasks from a given user.
+export const tasksClearByUser = (userId: string) => {
+  if (tasks[userId]) {
+    tasks[userId] = [];
+  } else {
+    console.warn("User not found");
+  }
+};
